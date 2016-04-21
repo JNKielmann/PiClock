@@ -1,17 +1,8 @@
 import * as React from 'react'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-
 import ClockPanel from './ClockPanel'
 
+const App = () => (
+  <ClockPanel />
+)
 
-
-
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <ClockPanel />
-    );
-  }
-}
+export default App

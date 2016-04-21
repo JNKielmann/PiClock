@@ -2,7 +2,7 @@ import { combineReducers } from 'redux-immutable'
 import sharedReducer from './shared'
 
 const rootReducer = combineReducers({
-    shared: sharedReducer
+  shared: sharedReducer,
 })
 
-export default rootReducer  
+export default rootReducer

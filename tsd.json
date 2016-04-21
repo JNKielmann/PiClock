@@ -43,6 +43,9 @@
     },
     "react/react-addons-css-transition-group.d.ts": {
       "commit": "8d44da84eb10cdcd2f7ea133f289caef817cb2b9"
+    },
+    "lodash/lodash.d.ts": {
+      "commit": "544a35a10866b32afda9c7f029c0764558563f4f"
     }
   }
 }
