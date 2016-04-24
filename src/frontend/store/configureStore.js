@@ -3,9 +3,9 @@ import { createStore, applyMiddleware, compose } from 'redux'
 // import createLogger from 'redux-logger'
 import io from 'socket.io-client'
 import equal from 'deep-equal'
-import rootReducer from '../reducers'
+import rootReducer from '../../shared/reducers'
 import remoteMiddleware from './remoteMiddleware'
-import { setState } from '../actions/shared'
+import { setState } from '../../shared/actions/shared'
 
 
 export default function configureStore(initialState) {
@@ -27,8 +27,8 @@ export default function configureStore(initialState) {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers').default
+    module.hot.accept('../../shared/reducers', () => {
+      const nextRootReducer = require('../../shared/reducers').default
       store.replaceReducer(nextRootReducer)
     })
   }

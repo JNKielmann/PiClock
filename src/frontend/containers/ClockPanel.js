@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import * as clockActions from '../actions/clock'
+import * as clockActions from '../../shared/actions/clock'
 import TimezoneSelector from '../components/TimezoneSelector'
 import ColorPicker from '../components/ColorPicker'
 import ClockStyleSelector from '../components/ClockStyleSelector'

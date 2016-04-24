@@ -49,8 +49,8 @@
     "mocha": "^2.4.5",
     "redbox-react": "^1.2.2",
     "style-loader": "^0.13.0",
-    "webpack": "^1.9.11",
-    "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.2.0"
+    "webpack": "^1.13.0",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
   }
 }
