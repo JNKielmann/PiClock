@@ -4,7 +4,7 @@ const padding = 1
 const matrixSize = 32
 
 
-export default class CanvasMatrix {
+class CanvasMatrix {
     /**
      * @param {Node} parentElement
      */
@@ -41,5 +41,6 @@ export default class CanvasMatrix {
       }
     }
   }
-
 }
+
+export default CanvasMatrix

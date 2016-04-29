@@ -9,7 +9,7 @@ import { setState } from '../../shared/actions/shared'
 
 
 export default function configureStore(initialState) {
-  const socket = io('http://localhost:8090')
+  const socket = io('http://192.168.0.14:8090')
   const store = createStore(
     rootReducer,
     initialState,
