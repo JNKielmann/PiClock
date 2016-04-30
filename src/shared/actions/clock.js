@@ -1,9 +1,8 @@
 import * as actionTypes from './actionTypes'
-import { Map } from 'immutable'
 
-export const changeClockStyle = (style) => ({
+export const changeClockStyle = (clockStyle) => ({
   type: actionTypes.CHANGE_CLOCK_STYLE,
-  style,
+  clockStyle,
   meta: {
     remote: true,
   },
@@ -19,7 +18,7 @@ export const changeClockTimezone = (timezoneOffset) => ({
 
 export const changeClockPrimaryColor = (primaryColor) => ({
   type: actionTypes.CHANGE_CLOCK_PRIMARY_COLOR,
-  primaryColor: new Map(primaryColor),
+  primaryColor,
   meta: {
     remote: true,
   },
@@ -28,12 +27,15 @@ export const changeClockPrimaryColor = (primaryColor) => ({
 export const changeClockPrimaryColorLive = (primaryColor) => ({
 
   type: actionTypes.CHANGE_CLOCK_PRIMARY_COLOR,
-  primaryColor: new Map(primaryColor),
+  primaryColor,
+  meta: {
+    remote: true,
+  },
 })
 
 export const changeClockSecondaryColor = (secondaryColor) => ({
   type: actionTypes.CHANGE_CLOCK_SECONDARY_COLOR,
-  secondaryColor: new Map(secondaryColor),
+  secondaryColor,
   meta: {
     remote: true,
   },
@@ -41,5 +43,8 @@ export const changeClockSecondaryColor = (secondaryColor) => ({
 
 export const changeClockSecondaryColorLive = (secondaryColor) => ({
   type: actionTypes.CHANGE_CLOCK_SECONDARY_COLOR,
-  secondaryColor: new Map(secondaryColor),
+  secondaryColor,
+  meta: {
+    remote: true,
+  },
 })

@@ -13,7 +13,7 @@ class LedMatrix {
   }
 
   setPixel(x, y, { r, g, b }) {
-    this.matrix.setPixel(x, y, r, g, b)
+    this.matrix.setPixel(this.width() - y, x, r, g, b)
   }
 
   clear(color) {

@@ -69,13 +69,7 @@ ClockPanel.propTypes = {
   onSecondaryColorChangeLive: React.PropTypes.func.isRequired,
 }
 function mapStateToProps(state) {
-  const clockState = state.getIn(['shared', 'clock'])
-  return {
-    clockStyle: clockState.get('style'),
-    timezoneOffset: clockState.get('timezoneOffset'),
-    primaryColor: clockState.get('primaryColor').toJS(),
-    secondaryColor: clockState.get('secondaryColor').toJS(),
-  }
+  return state.shared.clock
 }
 const mapDispatchToProps = {
   onStyleChanged: clockActions.changeClockStyle,

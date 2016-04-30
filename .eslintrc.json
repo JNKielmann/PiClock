@@ -1,4 +1,8 @@
 {
+    "parser": "babel-eslint",
+    "ecmaFeatures": {
+        "modules": true
+    },
     "extends": "airbnb",
     "rules":{
         "semi": [2, "never"],

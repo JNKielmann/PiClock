@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 // import thunkMiddleware from 'redux-thunk'
 // import createLogger from 'redux-logger'
 import io from 'socket.io-client'
-import equal from 'deep-equal'
+import deepEqual from 'deep-equal'
 import rootReducer from '../../shared/reducers'
 import remoteMiddleware from './remoteMiddleware'
 import { setState } from '../../shared/actions/shared'
@@ -19,8 +19,8 @@ export default function configureStore(initialState) {
     )
   )
   socket.on('newState', (newState) => {
-    const sharedState = store.getState().get('shared')
-    if (!equal(newState, sharedState.toJS())) {
+    const currentState = store.getState().shared
+    if (!deepEqual(newState, currentState)) {
       store.dispatch(setState(newState))
     }
   })
