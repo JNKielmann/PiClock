@@ -6,15 +6,15 @@ export default class MatrixRenderer {
   render(matrixDisplay, state) {
     const smallFont = new PixelTextRenderer(matrixDisplay, require('./simpleFontSmall'))
     const clock = new ClockRenderer(matrixDisplay, smallFont)
-    const clockState = state.getIn(['shared', 'clock'])
-    clock.setPrimaryColor(clockState.get('primaryColor').toJS())
-    clock.setSecondaryColor(clockState.get('secondaryColor').toJS())
+    const clockState = state.shared.clock
+    clock.setPrimaryColor(clockState.primaryColor)
+    clock.setSecondaryColor(clockState.secondaryColor)
     clearInterval(this.clockInterval)
     const renderClock = () => {
-      const date = new Date(new Date().getTime() + clockState.get('timezoneOffset') * 60000)
+      const date = new Date(new Date().getTime() + clockState.timezoneOffset * 60000)
       clock.setTime(date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds())
       matrixDisplay.clear()
-      const clockStyle = clockState.get('style')
+      const clockStyle = clockState.clockStyle
       switch (clockStyle) {
         case 'digital':
           clock.drawDigital()

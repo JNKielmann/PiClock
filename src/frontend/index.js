@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 
 
-import MatrixRenderer from './matrixRenderer/matrixRenderer'
+import MatrixRenderer from '../shared/matrixRenderer/matrixRenderer'
 import CanvasMatrix from './matrixRenderer/canvasMatrix'
 
 const store = configureStore()
@@ -30,9 +30,9 @@ let render = () => {
 
 if (module.hot) {
     // Support hot reloading of matrix renderer
-  module.hot.accept('./matrixRenderer/matrixRenderer', () => {
+  module.hot.accept('../shared/matrixRenderer/matrixRenderer', () => {
     matrixRenderer.unmount()
-    const NewMatrixRenderer = require('./matrixRenderer/matrixRenderer').default
+    const NewMatrixRenderer = require('../shared/matrixRenderer/matrixRenderer').default
     matrixRenderer = new NewMatrixRenderer()
     matrixRenderer.render(canvasMatrix, store.getState())
   })

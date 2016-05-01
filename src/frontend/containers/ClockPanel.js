@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import * as clockActions from '../actions/clock'
+import * as clockActions from '../../shared/actions/clock'
 import TimezoneSelector from '../components/TimezoneSelector'
 import ColorPicker from '../components/ColorPicker'
 import ClockStyleSelector from '../components/ClockStyleSelector'
@@ -65,13 +65,7 @@ ClockPanel.propTypes = {
   onSecondaryColorChangeLive: React.PropTypes.func.isRequired,
 }
 function mapStateToProps(state) {
-  const clockState = state.getIn(['shared', 'clock'])
-  return {
-    clockStyle: clockState.get('style'),
-    timezoneOffset: clockState.get('timezoneOffset'),
-    primaryColor: clockState.get('primaryColor').toJS(),
-    secondaryColor: clockState.get('secondaryColor').toJS(),
-  }
+  return state.shared.clock
 }
 const mapDispatchToProps = {
   onStyleChanged: clockActions.changeClockStyle,

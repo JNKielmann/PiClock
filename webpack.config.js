@@ -6,7 +6,7 @@ module.exports = {
         //'webpack-dev-server/client?http://localhost:8080',
         //'webpack/hot/only-dev-server',
         'webpack-hot-middleware/client',
-        './src/index.js'
+        './src/frontend/index.js'
     ],
     module: {
         loaders: [{
@@ -22,7 +22,7 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'dist/frontend'),
         filename: 'bundle.js',
         publicPath: '/static/'
     },
