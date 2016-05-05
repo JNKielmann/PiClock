@@ -25,6 +25,7 @@ class ColorPicker extends Component {
       panel: {
         backgroundColor: `rgb(${props.color.r}, ${props.color.g}, ${props.color.b})`,
         height: '20px',
+        width: '100px',
         borderStyle: 'solid',
         borderWidth: '2px',
         cursor: 'pointer',

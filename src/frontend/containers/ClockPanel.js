@@ -4,53 +4,49 @@ import * as clockActions from '../../shared/actions/clock'
 import TimezoneSelector from '../components/TimezoneSelector'
 import ColorPicker from '../components/ColorPicker'
 import ClockStyleSelector from '../components/ClockStyleSelector'
-import { Grid, Row } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 const ClockPanel = (props) => (
   <div>
-  <h2>Clock Options: </h2>
-    <Grid>
-      <table><tbody>
-        <tr>
-          <td> Clock style: </td>
-          <td>
+    <Grid className={'pull-left'}>
+      <Row>
+          <Col xs={3}> Clock style: </Col>
+          <Col xs={9}>
             <ClockStyleSelector
               clockStyle={props.clockStyle}
               onStyleChanged={props.onStyleChanged}
             />
-          </td>
-        </tr>
-        <tr>
-          <td>Timezone: </td>
-          <td>
+          </Col>
+      </Row>
+      <Row>
+          <Col xs={3}>Timezone: </Col>
+          <Col xs={9}>
             <TimezoneSelector
               value={props.timezoneOffset}
               onChange={props.onTimezoneChange}
             />
-          </td>
-        </tr>
-        <tr>
-          <td>Pimary Color: </td>
-          <td>
+          </Col>
+      </Row>
+        <Row>
+          <Col xs={3}>Pimary Color: </Col>
+          <Col xs={9}>
             <ColorPicker
               color={props.primaryColor}
               onChangeComplete={colorObj => props.onPrimaryColorChange(colorObj.rgb) }
               onChange={colorObj => props.onPrimaryColorChangeLive(colorObj.rgb) }
             />
-          </td>
-        </tr>
-        <tr>
-          <td>Secondary Color: </td>
-          <td>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={3}>Secondary Color: </Col>
+          <Col xs={9}>
             <ColorPicker
               color={props.secondaryColor}
               onChangeComplete={colorObj => props.onSecondaryColorChange(colorObj.rgb) }
               onChange={colorObj => props.onSecondaryColorChangeLive(colorObj.rgb) }
             />
-          </td>
-        </tr>
-
-      </tbody></table>
+          </Col>
+        </Row>
     </Grid>
   </div>
 )

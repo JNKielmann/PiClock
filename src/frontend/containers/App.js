@@ -1,8 +1,8 @@
 import * as React from 'react'
-import ClockPanel from './ClockPanel'
+import SideMenu from './SideMenu'
 
 const App = () => (
-  <ClockPanel />
+  <SideMenu />
 )
 
 export default App
