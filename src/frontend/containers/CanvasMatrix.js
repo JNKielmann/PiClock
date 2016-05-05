@@ -17,7 +17,7 @@ class CanvasMatrix extends Component {
         this.matrixRenderer.unmount()
         const NewMatrixRenderer = require('../../shared/matrixRenderer/matrixRenderer').default
         this.matrixRenderer = new NewMatrixRenderer()
-        //this.matrixRenderer.render(this, store.getState())
+        // this.matrixRenderer.render(this, store.getState())
       })
     }
   }
@@ -29,8 +29,11 @@ class CanvasMatrix extends Component {
 
   setPixel(x, y, { r, g, b }) {
     if (!this.ctx) return
-    this.ctx.clearRect(x * (pixelSize + 2 * padding),
-            y * (pixelSize + 2 * padding), pixelSize, pixelSize)
+    this.ctx.fillStyle = 'black'
+    this.ctx.fillRect(
+      x * (pixelSize + 2 * padding),
+      y * (pixelSize + 2 * padding),
+      pixelSize, pixelSize)
     this.ctx.beginPath()
     this.ctx.arc(x * (pixelSize + 2 * padding) + pixelSize / 2,
             y * (pixelSize + 2 * padding) + pixelSize / 2,
@@ -45,9 +48,10 @@ class CanvasMatrix extends Component {
     return matrixSize
   }
 
-  clear(color = { r: 240, g: 240, b: 240 }) {
+  clear(color = { r: 0, g: 0, b: 0 }) {
+    this.ctx.fillStyle = 'black'
+    this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
     if (!this.ctx) return
-    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
     for (let x = 0; x < matrixSize; ++x) {
       for (let y = 0; y < matrixSize; ++y) {
         this.setPixel(x, y, color)
