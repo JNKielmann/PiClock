@@ -23,7 +23,8 @@ class CanvasMatrix {
   }
 
   setPixel(x, y, { r, g, b }) {
-    this.ctx.clearRect(x * (pixelSize + 2 * padding),
+    this.ctx.fillStyle = 'black'
+    this.ctx.fillRect(x * (pixelSize + 2 * padding),
             y * (pixelSize + 2 * padding), pixelSize, pixelSize)
     this.ctx.beginPath()
     this.ctx.arc(x * (pixelSize + 2 * padding) + pixelSize / 2,
@@ -33,8 +34,9 @@ class CanvasMatrix {
     this.ctx.fill()
   }
 
-  clear(color = { r: 240, g: 240, b: 240 }) {
-    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
+  clear(color = { r: 0, g: 0, b: 0 }) {
+    this.ctx.fillStyle = 'black'
+    this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
     for (let x = 0; x < matrixSize; ++x) {
       for (let y = 0; y < matrixSize; ++y) {
         this.setPixel(x, y, color)
