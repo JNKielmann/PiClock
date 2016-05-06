@@ -12,12 +12,12 @@ class CanvasMatrix extends Component {
     this.matrixRenderer = new MatrixRenderer()
     this.matrixRenderer.render(this, this.props.state)
     if (module.hot) {
-        // Support hot reloading of matrix renderer
+      // Support hot reloading of matrix renderer
       module.hot.accept('../../shared/matrixRenderer/matrixRenderer', () => {
         this.matrixRenderer.unmount()
         const NewMatrixRenderer = require('../../shared/matrixRenderer/matrixRenderer').default
         this.matrixRenderer = new NewMatrixRenderer()
-        // this.matrixRenderer.render(this, store.getState())
+        this.matrixRenderer.render(this, this.props.state)
       })
     }
   }
@@ -38,7 +38,7 @@ class CanvasMatrix extends Component {
     this.ctx.arc(x * (pixelSize + 2 * padding) + pixelSize / 2,
             y * (pixelSize + 2 * padding) + pixelSize / 2,
             pixelSize / 2, 0, 2 * Math.PI)
-    this.ctx.fillStyle = `rgb(${r},${g},${b})`
+    this.ctx.fillStyle = `rgb(${r + 5},${g + 5},${b + 5})`
     this.ctx.fill()
   }
   width() {

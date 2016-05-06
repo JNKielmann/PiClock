@@ -9,6 +9,7 @@ export default class ClockRenderer {
     this.setTime(0, 0, 0)
     this.setPrimaryColor({ r: 255, g: 255, b: 255 })
     this.setSecondaryColor({ r: 255, g: 255, b: 255 })
+
   }
   setTime(hours, minutes, seconds) {
     this.hours = isNaN(hours) ? 0 : hours
@@ -65,7 +66,14 @@ export default class ClockRenderer {
                      'Drei', 'Vier', 'Fuenf',
                      'Sechs', 'Sieben', 'Acht',
                      'Neun', 'Zehn', 'Elf']
-    this.textRenderer.drawText('fuenf nach', this.primaryColor, rowPos[0])
-    this.textRenderer.drawText(numbers[this.hours % 12], this.primaryColor, rowPos[3])
+   // this.textRenderer.drawText('fuenf nach', this.primaryColor, rowPos[0])
+   // this.textRenderer.drawText(numbers[this.hours % 12], this.primaryColor, rowPos[3])
+
+
+    this.textRenderer.drawScrollingText(
+      'Hallo Welt dieser Text scrollt  ',
+      this.primaryColor,
+      { x: 1, y: 5, w: 25, h: 10 },
+     109)
   }
 }
