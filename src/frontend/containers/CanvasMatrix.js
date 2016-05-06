@@ -9,21 +9,21 @@ const matrixSize = 32
 class CanvasMatrix extends Component {
   componentDidMount() {
     this.ctx = this.refs.canvas.getContext('2d')
-    this.matrixRenderer = new MatrixRenderer()
-    this.matrixRenderer.render(this, this.props.state)
+    this.matrixRenderer = new MatrixRenderer(this)
+    this.renderInterval = setInterval(() => {
+      this.matrixRenderer.render(this.props.state)
+    }, 1000 / 10)
     if (module.hot) {
       // Support hot reloading of matrix renderer
       module.hot.accept('../../shared/matrixRenderer/matrixRenderer', () => {
-        this.matrixRenderer.unmount()
         const NewMatrixRenderer = require('../../shared/matrixRenderer/matrixRenderer').default
-        this.matrixRenderer = new NewMatrixRenderer()
-        this.matrixRenderer.render(this, this.props.state)
+        this.matrixRenderer = new NewMatrixRenderer(this)
       })
     }
   }
 
-  componentDidUpdate() {
-    this.matrixRenderer.render(this, this.props.state)
+  componentWillUnmount() {
+    clearInterval(this.renderInterval)
   }
 
 
