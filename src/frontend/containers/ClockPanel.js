@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import * as clockActions from 'shared/actions/clock'
-import TimezoneSelector from 'frontend/components/TimezoneSelector'
-import ColorPicker from 'frontend/components/ColorPicker'
-import ClockStyleSelector from 'frontend/components/ClockStyleSelector'
+import * as clockActions from '../../shared/actions/clock'
+import TimezoneSelector from '../components/TimezoneSelector'
+import ColorPicker from '../components/ColorPicker'
+import ClockStyleSelector from '../components/ClockStyleSelector'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 const ClockPanel = (props) => (

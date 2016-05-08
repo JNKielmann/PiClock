@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import MatrixRenderer from 'shared/matrixRenderer/matrixRenderer'
 import { connect } from 'react-redux'
 
-const pixelSize = 13
-const padding = 1
+const pixelSize = 20
+const padding = 2
 const matrixSize = 32
 
 class CanvasMatrix extends Component {
@@ -63,7 +63,7 @@ class CanvasMatrix extends Component {
     const size = (pixelSize + 2 * padding) * matrixSize
     return (
       <div>
-        <canvas ref="canvas" width={size} height={size} />
+        <canvas style={this.props.style} ref="canvas" width={size} height={size} />
       </div>
     )
   }
@@ -71,6 +71,7 @@ class CanvasMatrix extends Component {
 
 CanvasMatrix.propTypes = {
   state: PropTypes.object.isRequired,
+  style: PropTypes.string,
 }
 
 export default connect(state => ({ state }), {})(CanvasMatrix)
