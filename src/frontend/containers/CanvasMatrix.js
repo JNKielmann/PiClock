@@ -12,7 +12,7 @@ class CanvasMatrix extends Component {
     this.matrixRenderer = new MatrixRenderer(this)
     this.renderInterval = setInterval(() => {
       this.matrixRenderer.render(this.props.state)
-    }, 1000 / 10)
+    }, 1000 / 30)
     if (module.hot) {
       // Support hot reloading of matrix renderer
       module.hot.accept('../../shared/matrixRenderer/matrixRenderer', () => {

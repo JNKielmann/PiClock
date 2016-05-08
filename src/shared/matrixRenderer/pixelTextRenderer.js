@@ -34,11 +34,16 @@ export default class PixelTextRenderer {
   drawScrollingText(text, color, rect, scrollOffset) {
     const upperCaseText = text.toUpperCase()
     let currentX = rect.x - scrollOffset
+    let wordLength = 0
     while (currentX < rect.x + rect.w) {
+      wordLength = 0
       for (const char of upperCaseText) {
-        currentX += this._drawChar(char, color, { x: currentX, y: rect.y }, rect)
+        const charSize = this._drawChar(char, color, { x: currentX, y: rect.y }, rect)
+        wordLength += charSize
+        currentX += charSize
       }
     }
+    return wordLength
   }
 
   /**
