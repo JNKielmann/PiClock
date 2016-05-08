@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions/actionTypes'
+import * as actionTypes from 'shared/actions/actionTypes'
 import clockReducer, { initialState as clockInitialState } from './clock'
 
 export const initialState = {

@@ -3,7 +3,7 @@ import rootReducer from '../shared/reducers'
 import { createStore } from 'redux'
 import util from 'util'
 
-import MatrixRenderer from '../shared/matrixRenderer/matrixRenderer'
+import MatrixRenderer from 'shared/matrixRenderer/matrixRenderer'
 import LedMatrix from './matrixRenderer/ledMatrix'
 
 const io = new Server().attach(8090)

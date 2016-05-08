@@ -3,9 +3,9 @@ import { createStore, applyMiddleware, compose } from 'redux'
 // import createLogger from 'redux-logger'
 import io from 'socket.io-client'
 import deepEqual from 'deep-equal'
-import rootReducer from '../../shared/reducers'
+import rootReducer from 'shared/reducers'
 import remoteMiddleware from './remoteMiddleware'
-import { setState } from '../../shared/actions/shared'
+import { setState } from 'shared/actions/shared'
 
 
 export default function configureStore(initialState) {

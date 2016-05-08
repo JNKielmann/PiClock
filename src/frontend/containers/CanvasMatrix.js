@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import MatrixRenderer from '../../shared/matrixRenderer/matrixRenderer'
+import MatrixRenderer from 'shared/matrixRenderer/matrixRenderer'
 import { connect } from 'react-redux'
 
 const pixelSize = 13
